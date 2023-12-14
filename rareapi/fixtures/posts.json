@@ -1,0 +1,26 @@
+[
+  {
+    "model": "rareapi.post",
+    "pk": 1,
+    "fields": {
+      "title": "Catch-22",
+      "publication_date": "11/10/1961",
+      "image_url": "https://upload.wikimedia.org/wikipedia/en/9/99/Catch22.jpg",
+      "content": "lorem ipsum",
+      "approved": 1,
+      "rare_user_id": 1
+    }
+  },
+  {
+    "model": "rareapi.post",
+    "pk": 2,
+    "fields": {
+      "title": "The Phantom Tollbooth",
+      "publication_date": "06/16/1961",
+      "image_url": "https://embed.cdn.pais.scholastic.com/v1/channels/tso/products/identifiers/isbn/9780590409179/primary/renditions/700",
+      "content": "lorem ipsum",
+      "approved": 1,
+      "rare_user_id": 1
+    }
+  }
+]
