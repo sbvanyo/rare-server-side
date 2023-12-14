@@ -32,3 +32,8 @@ class TagView(ViewSet):
         
         serializer = TagSerializer(tag)
         return Response(serializer.data, status=status.HTTP_200_OK)
+      
+    def destroy(self, request, pk):
+        tag = Tag.objects.get(pk=pk)
+        tag.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
