@@ -1,0 +1,16 @@
+[
+  {
+    "model": "rareapi.tag",
+    "pk": 1,
+    "fields": {
+      "label": "Non-Fiction"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 1,
+    "fields": {
+      "label": "Mystery"
+    }
+  }
+]
