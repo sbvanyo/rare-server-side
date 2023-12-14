@@ -9,4 +9,4 @@ class Post(models.Model):
     image_url = models.CharField(max_length=50)
     content = models.CharField(max_length=50)
     approved = models.BinaryField()
-    rare_user_id = models.ForeignKey(User, on_delete=CASCADE)
+    rare_user_id = models.ForeignKey(User, on_delete=models.CASCADE)
