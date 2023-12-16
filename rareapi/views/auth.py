@@ -62,7 +62,14 @@ def register_user(request):
     # Return the gamer info to the client
     data = {
         'id': user.id,
-        'uid': user.uid,
-        'bio': user.bio
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'bio': user.bio,
+        'profile_image_url': user.profile_image_url,
+        'email': user.email,
+        'created_on': user.created_on,
+        'active': user.active,
+        'is_staff': user.is_staff,
+        'uid': user.uid
     }
     return Response(data)

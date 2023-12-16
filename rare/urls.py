@@ -24,6 +24,6 @@ router.register(r'tag', TagView, 'tag')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls))
+    path('', include(router.urls)),
     path('checkuser', check_user),
 ]
