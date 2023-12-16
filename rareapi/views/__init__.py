@@ -1,4 +1,4 @@
-# from .post import PostView
+from .post import PostView
 from .tag import TagView
 from .post_tag import PostTagView
 from .post import PostView
