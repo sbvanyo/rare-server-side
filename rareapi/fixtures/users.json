@@ -1,0 +1,17 @@
+[
+  {
+    "model": "rareapi.user",
+    "pk": 1,
+    "fields": {
+        "first_name": "Stacey",
+        "last_name": "Vanyo",
+        "bio": "This is a bio",
+        "profile_image_url": "",
+        "email": "sbvanyo@gmail.com",
+        "created_on": "2023-12-16",
+        "active": "MQ==",
+        "is_staff": "False",
+        "uid": 1
+    }
+  }
+]
