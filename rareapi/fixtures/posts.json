@@ -7,7 +7,7 @@
       "publication_date": "1961-11-10",
       "image_url": "https://upload.wikimedia.org/wikipedia/en/9/99/Catch22.jpg",
       "content": "lorem ipsum",
-      "approved": 4,
+      "approved": "MQ==",
       "rare_user_id": 1
     }
   },
@@ -16,10 +16,10 @@
     "pk": 2,
     "fields": {
       "title": "The Phantom Tollbooth",
-      "publication_date": "1961-16-06",
+      "publication_date": "1961-06-16",
       "image_url": "https://embed.cdn.pais.scholastic.com/v1/channels/tso/products/identifiers/isbn/9780590409179/primary/renditions/700",
       "content": "lorem ipsum",
-      "approved": 4,
+      "approved": "MQ==",
       "rare_user_id": 1
     }
   }
