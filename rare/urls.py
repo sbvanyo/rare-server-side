@@ -25,6 +25,6 @@ router.register(r'posts', PostView, 'post')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls))
+    path('', include(router.urls)),
     path('checkuser', check_user),
 ]
