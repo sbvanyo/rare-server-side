@@ -18,7 +18,6 @@ class CommentView(ViewSet):
       post = request.query_params.get('post', None)
       if post is not None:
         comments = comments.filter(post_id = post)
-      user = User.objects.get(uid=id)
       
       serializer = CommentSerializer(comments, many=True)
       return Response(serializer.data)

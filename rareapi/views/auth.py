@@ -1,3 +1,4 @@
+from datetime import datetime
 from rareapi.models import User
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -44,7 +45,7 @@ def register_user(request):
     Method arguments:
       request -- The full HTTP request object
     '''
-
+    active_bytes = bytes([int(True)])
     # Now save the user info in the levelupapi_gamer table
     user = User.objects.create(
         first_name=request.data['first_name'],
@@ -52,9 +53,9 @@ def register_user(request):
         bio=request.data['bio'],
         profile_image_url=request.data['profile_image_url'],
         email=request.data['email'],
-        created_on=request.data['created_on'],
-        active=request.data['active'],
-        is_staff=request.data['is_staff'],
+        created_on= datetime.now(),
+        active=active_bytes,  # Use the bytes representation for the BinaryField
+        is_staff=True,
         uid=request.data['uid']
         
     )
