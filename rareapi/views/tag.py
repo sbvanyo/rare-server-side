@@ -37,3 +37,9 @@ class TagView(ViewSet):
         tag = Tag.objects.get(pk=pk)
         tag.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = ('id', 'label')
+  
