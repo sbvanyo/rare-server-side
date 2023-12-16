@@ -8,7 +8,7 @@ pylint = "==2.15.5"
 autopep8 = "==2.0.0"
 django = "==4.1.3"
 djangorestframework = "==3.14.0"
-django-cors-headers = "==3.13.0"
+django-cors-headers = "*"
 pylint-django = "==2.5.3"
 
 [dev-packages]
