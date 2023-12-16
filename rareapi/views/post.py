@@ -56,6 +56,29 @@ class PostView(ViewSet):
         return Response(serializer.data)
     
     
+    def update(self, request, pk):
+        """Handle PUT requests for a post
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        approved_bytes = base64.b64decode(request.data["approved"])
+        
+        post = Post.objects.get(pk=pk)
+        post.title = request.data["title"]
+        post.publication_date = request.data["publicationDate"]
+        post.image_url = request.data["imageUrl"]
+        post.content = request.data["content"]
+        post.approved = approved_bytes
+
+        rare_user_id = User.objects.get(pk=request.data["rareUserId"])
+        post.rare_user_id = rare_user_id
+        post.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+    
+    
     def destroy(self, request, pk):
         post = Post.objects.get(pk=pk)
         post.delete()
