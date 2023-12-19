@@ -31,18 +31,19 @@ class PostView(ViewSet):
         Returns:
             Response -- JSON serialized list of posts
         """
-                # Get the uid from the request query parameters
-        uid = request.query_params.get('uid', None)
+        # Get the user id from the request query parameters
+        user_id = request.query_params.get('rare_user_id_id', None)
 
-        if uid is not None:
-            # Filter posts by the user's uid
-            posts = Post.objects.filter(rare_user_id__uid=uid)
+        if user_id is not None:
+            # Filter posts by the user's id
+            posts = Post.objects.filter(rare_user_id_id=user_id)
         else:
-            # If no uid is provided, return all posts
+            # If no user id is provided, return all posts
             posts = Post.objects.all()
 
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
+
     
     
     def create(self, request):
