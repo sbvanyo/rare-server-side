@@ -87,8 +87,13 @@ class PostView(ViewSet):
 
 
 class PostSerializer(serializers.ModelSerializer):
+    tags = serializers.SerializerMethodField()
     """JSON serializer for posts"""
     class Meta:
         model = Post
-        fields = ('id', 'title', 'publication_date', 'image_url', 'content', 'approved', 'rare_user_id')
+        fields = ('id', 'title', 'publication_date', 'image_url', 'content', 'approved', 'rare_user_id', 'tags')
         depth = 1
+        
+    def get_tags(self, obj):
+        post_tags = obj.tag_posts.all()
+        return [{'id': tag.tag.id, 'label': tag.tag.label} for tag in post_tags]
