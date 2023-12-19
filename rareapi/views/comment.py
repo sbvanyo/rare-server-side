@@ -54,8 +54,14 @@ class CommentView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
       
 class CommentSerializer(serializers.ModelSerializer):
+
+    author_full_name = serializers.SerializerMethodField()
+
     class Meta:
         model = Comment
-        fields = ('id', 'author', 'post', 'content', 'created_on')
+        fields = ('id', 'author', 'post', 'content', 'created_on', 'author_full_name')
+
+    def get_author_full_name(self, obj):
+        return f"{obj.author.first_name} {obj.author.last_name}"
       
       
