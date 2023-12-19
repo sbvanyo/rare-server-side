@@ -18,6 +18,9 @@ class PostView(ViewSet):
             Response -- JSON serialized post
         """
         post = Post.objects.get(pk=pk)
+        comment = request.query_params.get('comment', None)
+        if comment is not None:
+            post = post.filter(comment_id=comment)
         serializer = PostSerializer(post)
         return Response(serializer.data)
 
