@@ -18,6 +18,9 @@ class PostView(ViewSet):
             Response -- JSON serialized post
         """
         post = Post.objects.get(pk=pk)
+        comment = request.query_params.get('comment', None)
+        if comment is not None:
+            post = post.filter(comment_id=comment)
         serializer = PostSerializer(post)
         return Response(serializer.data)
 
@@ -28,7 +31,16 @@ class PostView(ViewSet):
         Returns:
             Response -- JSON serialized list of posts
         """
-        posts = Post.objects.all()
+                # Get the uid from the request query parameters
+        uid = request.query_params.get('uid', None)
+
+        if uid is not None:
+            # Filter posts by the user's uid
+            posts = Post.objects.filter(rare_user_id__uid=uid)
+        else:
+            # If no uid is provided, return all posts
+            posts = Post.objects.all()
+
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
     
@@ -87,13 +99,8 @@ class PostView(ViewSet):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    tags = serializers.SerializerMethodField()
     """JSON serializer for posts"""
     class Meta:
         model = Post
-        fields = ('id', 'title', 'publication_date', 'image_url', 'content', 'approved', 'rare_user_id', 'tags')
+        fields = ('id', 'title', 'publication_date', 'image_url', 'content', 'approved', 'rare_user_id')
         depth = 1
-        
-    def get_tags(self, obj):
-        post_tags = obj.tag_posts.all()
-        return [{'id': tag.tag.id, 'label': tag.tag.label} for tag in post_tags]
